@@ -1,2 +1,2 @@
-# sql-khan-academy-practice
-This repository contains a compilation of solutions and projects that I completed during the course "Intro to SQL: Querying and managing data" by Khan Academy. Coursework included guided practice in SQL Basics, More Advanced SQL Queries, Relational Queries in SQL, &amp; Modifying Databases with SQL.
+# SQL-Practice-Khan-Academy
+This repository contains a compilation of the challenges and projects that I completed throughout the Khan Academy course "Intro to SQL: Querying and managing data". Coursework includes guided practice in SQL basics, more advanced SQL queries, relational queries in SQL, and modifying databases with SQL.
