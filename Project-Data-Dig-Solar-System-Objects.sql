@@ -1,20 +1,19 @@
-/*
-Khan Academy Intro to SQL: Querying and Managing Data 
-Lesson 2: More Advanced SQL Queries 
-Project: Data Dig
+/*Khan Academy Intro to SQL: Querying and Managing Data 
+Lesson 2: More Advanced SQL Queries*/ 
+
+/*PROJECT: Data Dig
   We’ve curated a set of interesting data sets for you: Top movies, Top countries by population, Solar system objects by size, Marvel characters, Furniture store sales, Earned KA badges, Winston's donut logs, Card game results, and NFL draft picks. 
   Pick one of those data sets or create a data set like that, and use advanced SELECT queries to discover things about the data. 
   What sort of questions might one have about that data, like if they were using it for an app or a business idea? Here are some ideas:
   What are average, max, and min values in the data?
   What about those numbers per category in the data (using HAVING)?
   What ways are there to group the data values that don’t exist yet (using CASE)?
-  What interesting ways are there to filter the data (using AND/OR)? 
-*/
+  What interesting ways are there to filter the data (using AND/OR)?*/
 
-/* Solar system objects
+/*Solar system objects
 Adapted from: http://en.wikipedia.org/wiki/List_of_Solar_System_objects_by_size
-Collected by: https://www.khanacademy.org/profile/patrick809/programs
-*/
+Collected by: https://www.khanacademy.org/profile/patrick809/programs*/
+
 
 CREATE TABLE solar_system_objects(
   body TEXT
@@ -65,33 +64,26 @@ INSERT INTO solar_system_objects(body,mean_radius,mean_radius_rel,volume,volume_
 INSERT INTO solar_system_objects(body,mean_radius,mean_radius_rel,volume,volume_rel,mass,mass_rel,density,surface_gravity,surface_gravity_rel,type_of_object,shape) VALUES ('Ceres ',476.2,0.076,0.437,0.0004,0.95,0.000159,2.077,0.27,0.0275,'dwarf planet belt asteroid','round');
  
  
-/*Return properties of only object that are planets
-*/
+/*Return properties of only object that are planets*/
 SELECT * FROM solar_system_objects WHERE type_of_object LIKE "%planet%";
 
-/*Return count of planets
-*/
+/*Return count of planets*/
 SELECT COUNT(*) FROM solar_system_objects WHERE type_of_object LIKE "%planet%";
 
-/*Return only body of planets that have rings
-*/
+/*Return only body of planets that have rings*/
 SELECT body FROM solar_system_objects WHERE type_of_object LIKE "%planet%" AND type_of_object  LIKE "%ring%";
 
-/*Return the avg of all objects mass
-*/
+/*Return the avg of all objects mass*/
 SELECT AVG(mass) FROM solar_system_objects;
 
-/*Return surface gravity of earth
-*/
+/*Return surface gravity of earth*/
 SELECT surface_gravity FROM solar_system_objects WHERE body = "Earth";
 
-/*Return all objects where surface gravity is greater than the surface gravity of the earth
-*/
+/*Return all objects where surface gravity is greater than the surface gravity of the earth*/
 SELECT body, surface_gravity FROM solar_system_objects WHERE surface_gravity > (
     SELECT surface_gravity FROM solar_system_objects WHERE body = "Earth");
 
-/*Return count of each object with mean radius larger than earth and smaller than earth
-*/
+/*Return count of each object with mean radius larger than earth and smaller than earth*/
 SELECT COUNT(*),
     CASE
         WHEN mean_radius_rel > 1 THEN "Big Than Earth"
