@@ -1,12 +1,12 @@
-/*
-Khan Academy Intro to SQL: Querying and Managing Data  
-Lesson 3: Relational Queries In SQL 
-Project: Famous people
+/* Khan Academy Intro to SQL: Querying and Managing Data  
+Lesson 3: Relational Queries In SQL*/ 
+
+/*PROJECT: Famous people
   In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists. 
   Contains at least two tables with at least 15 rows total. 
   One of the tables contains a column that relates to the primary key of another table. 
-  Has at least one query that does a JOIN.
-*/
+  Has at least one query that does a JOIN.*/
+
 
 CREATE TABLE celebrities (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
